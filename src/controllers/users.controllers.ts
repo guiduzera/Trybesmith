@@ -1,4 +1,5 @@
 import { Request, Response } from 'express';
+import 'express-async-errors';
 import jwt from 'jsonwebtoken';
 import UsersServices from '../services/users.services';
 
