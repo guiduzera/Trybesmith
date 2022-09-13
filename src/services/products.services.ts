@@ -12,4 +12,8 @@ export default class ProductsService {
   public async create(body: ProductBody): Promise<ProductBody> {
     return this.model.create(body);
   }
+
+  public async getAll(): Promise<ProductBody[]> {
+    return this.model.getAll();
+  }
 }
