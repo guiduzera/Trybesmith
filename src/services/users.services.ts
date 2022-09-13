@@ -9,4 +9,6 @@ export default class UsersServices {
   }
 
   create = async (body: UsersBody): Promise<boolean> => this.model.create(body);
+
+  login = async (body: UsersBody): Promise<boolean> => this.model.login(body);
 }

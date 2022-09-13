@@ -2,6 +2,7 @@ import express from 'express';
 import OrdersControllers from './controllers/orders.controllers';
 import ProductsController from './controllers/products.controllers';
 import UsersController from './controllers/users.controllers';
+import userLoginMiddleware from './middlewares/userLogin.middleware';
 
 const routes = express.Router();
 
@@ -18,5 +19,7 @@ routes.get('/products', productsController.getAll);
 routes.post('/users', usersController.create);
 
 routes.get('/orders', orderControllers.getAll);
+
+routes.post('/login', userLoginMiddleware, usersController.login);
 
 export default routes;
