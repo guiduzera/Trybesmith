@@ -3,7 +3,7 @@ import 'express-async-errors';
 import UsersServices from '../services/users.services';
 import tokenGenerator from '../helpers/jwt';
 
-const secret = 'secret';
+const secret = process.env.SECRET || 'secret';
 
 export default class UsersController {
   constructor(private userController = new UsersServices()) {}
