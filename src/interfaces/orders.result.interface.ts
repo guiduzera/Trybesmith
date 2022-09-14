@@ -1,5 +1,5 @@
 export default interface OrdersResult {
-  id: number;
+  id?: number;
   userId: number;
   productsIds: number[];
 }

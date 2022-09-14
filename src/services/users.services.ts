@@ -1,3 +1,4 @@
+import UserResponse from '../interfaces/userResponse.interface';
 import UsersBody from '../interfaces/users.body.interface';
 import UsersModel from '../models/users.model';
 
@@ -8,7 +9,7 @@ export default class UsersServices {
     this.model = new UsersModel();
   }
 
-  create = async (body: UsersBody): Promise<boolean> => this.model.create(body);
+  create = async (body: UsersBody): Promise<UserResponse> => this.model.create(body);
 
-  login = async (body: UsersBody): Promise<boolean> => this.model.login(body);
+  login = async (body: UsersBody): Promise<UserResponse> => this.model.login(body);
 }

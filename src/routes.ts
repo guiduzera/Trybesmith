@@ -29,6 +29,7 @@ routes.post(
   '/orders', 
   tokenValidationMiddleware, 
   orderValidationMiddleware,
+  orderControllers.create,
 );
 
 routes.post('/login', userLoginMiddleware, usersController.login);

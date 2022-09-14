@@ -9,4 +9,7 @@ export default class OrdersServices {
   }
 
   getAll = async (): Promise<OrdersResult[]> => this.model.getAll();
+
+  create = async (productsIds: number[], userId?: number): Promise<OrdersResult> => this.model
+    .create(productsIds, userId);
 }

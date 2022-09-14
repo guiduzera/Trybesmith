@@ -1,18 +1,24 @@
 import jwt from 'jsonwebtoken';
-import { NextFunction, Request, Response } from 'express';
+import { NextFunction, Response } from 'express';
+import CustomRequest from '../interfaces/request.interface';
 
 const secret = process.env.SECRET || 'secret';
 
-const tokenValidationMiddleware = (req: Request, res: Response, next: NextFunction) => {
+type UserName = {
+  user: number;
+};
+
+const tokenValidationMiddleware = (req: CustomRequest, res: Response, next: NextFunction) => {
   const { authorization } = req.headers;
   if (!authorization) return res.status(401).json({ message: 'Token not found' });
   try {
     const verify = jwt.verify(authorization, secret);
-    console.log(verify);
+    const { user } = verify as UserName;
+    req.u = user;
+    next();
   } catch (err) {
-    return res.status(401).json({ message: 'invalid token' });
+    return res.status(401).json({ message: 'Invalid token' });
   }
-  next();
 };
 
 export default tokenValidationMiddleware;

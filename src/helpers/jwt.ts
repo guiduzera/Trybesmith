@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken';
 
 type Payload = {
-  user: string;
+  user?: number;
 };
 
 const tokenGenerator = (payload: Payload, secret: string) => {
