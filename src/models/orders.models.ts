@@ -21,7 +21,6 @@ export default class OrdersModel {
   };
 
   create = async (productsIds: number[], userId?: number): Promise<OrdersResult> => {
-    console.log(userId);
     const order = await connection.execute<ResultSetHeader>(
       'INSERT INTO Trybesmith.Orders (userId) VALUES (?);',
       [userId],
